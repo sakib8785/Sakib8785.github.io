@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday My Miss Maha</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      background: url('file-DBWJF1gjS4sB8tEQQiS9h4.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 0;
+    }
+
+    .message {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .message h1 {
+      font-size: 3em;
+      animation: fadeIn 2s ease-in-out forwards;
+      color: #ff99cc;
+      text-shadow: 2px 2px 5px #000;
+    }
+
+    .message p {
+      font-size: 1.5em;
+      margin-top: 30px;
+      max-width: 800px;
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out forwards;
+      color: #ffffff;
+      text-shadow: 1px 1px 3px #000;
+    }
+
+    .line1 { animation-delay: 3s; }
+    .line2 { animation-delay: 6s; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    audio {
+      display: none;
+    }
+
+    .petal {
+      position: fixed;
+      top: -50px;
+      width: 20px;
+      height: 20px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      z-index: 1;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <audio autoplay loop>
+    <source src="love.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="overlay"></div>
+
+  <div class="message">
+    <h1>Happy birthday to you my miss maha</h1>
+    <p class="line1">Your laugh is effervescent—a melody that bubbles through my heart and lifts me higher than I’ve ever been.</p>
+    <p class="line2">Your soul is luminescent—it radiates a light that turns even ordinary moments into magic.</p>
+  </div>
+
+  <!-- Falling Petals -->
+  <script>
+    function createPetal() {
+      const petal = document.createElement('div');
+      petal.classList.add('petal');
+      petal.style.left = Math.random() * window.innerWidth + 'px';
+      petal.style.animationDuration = (5 + Math.random() * 5) + 's';
+      document.body.appendChild(petal);
+      setTimeout(() => petal.remove(), 10000);
+    }
+
+    setInterval(createPetal, 300);
+  </script>
+
+</body>
+</html>
